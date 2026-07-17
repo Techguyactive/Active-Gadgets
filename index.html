@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACTIVE GADGETS · Admin Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <!-- header -->
+    <header class="navbar">
+        <div class="logo">
+            <i class="fas fa-bolt"></i>
+            <h1>ACTIVE <span>GADGETS</span></h1>
+        </div>
+        <div class="nav-links">
+            <a href="#" id="shopTab"><i class="fas fa-store"></i> Shop</a>
+            <a href="#" id="adminTab"><i class="fas fa-cog"></i> Admin</a>
+            <a href="#" class="cart-icon" id="cartBtn">
+                <i class="fas fa-shopping-cart"></i> <span id="cartCount">0</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero" id="heroSection">
+        <div class="hero-text">
+            <h2><i class="fas fa-microchip"></i> Next‑Gen Hub</h2>
+            <p>Phones · Laptops · Audio · Wearables</p>
+            <div class="hero-badges">
+                <span class="hero-badge"><i class="fas fa-check-circle"></i> 24h shipping</span>
+                <span class="hero-badge"><i class="fas fa-shield-alt"></i> 2‑year warranty</span>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div><div class="number" id="productCount">0</div><div class="label">Products</div></div>
+            <div><div class="number">4.9★</div><div class="label">Rating</div></div>
+            <div><div class="number">12k</div><div class="label">Happy users</div></div>
+        </div>
+    </section>
+
+    <!-- main container -->
+    <div class="container">
+        <!-- SHOP VIEW -->
+        <div id="shopView">
+            <div class="category-bar">
+                <div class="category-buttons" id="categoryButtons">
+                    <button class="category-btn active" data-category="all">⚡ All</button>
+                    <button class="category-btn" data-category="phone">📱 Phones</button>
+                    <button class="category-btn" data-category="laptop">💻 Laptops</button>
+                    <button class="category-btn" data-category="audio">🎧 Audio</button>
+                    <button class="category-btn" data-category="wearable">⌚ Wearables</button>
+                </div>
+                <select class="sort-select" id="sortSelect">
+                    <option value="default">Sort by</option>
+                    <option value="price-low">Price: Low → High</option>
+                    <option value="price-high">Price: High → Low</option>
+                    <option value="name">Name A → Z</option>
+                </select>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </div>
+
+        <!-- ADMIN VIEW (hidden by default) -->
+        <div id="adminView" style="display:none;">
+            <div class="admin-panel">
+                <h2><i class="fas fa-edit"></i> Stock Manager</h2>
+                <p style="color:#4a6a8a; margin-bottom:1.5rem;">Add, edit, or remove products. Changes save automatically to your browser.</p>
+                
+                <!-- Add Product Form -->
+                <div class="admin-form">
+                    <h3><i class="fas fa-plus-circle"></i> Add New Product</h3>
+                    <div class="form-grid">
+                        <input type="text" id="addName" placeholder="Product Name" />
+                        <select id="addCategory">
+                            <option value="phone">Phone</option>
+                            <option value="laptop">Laptop</option>
+                            <option value="audio">Audio</option>
+                            <option value="wearable">Wearable</option>
+                        </select>
+                        <input type="number" id="addPrice" placeholder="Price (₦)" />
+                        <input type="text" id="addDesc" placeholder="Description (e.g., 6.7&quot; · 48MP)" />
+                        <input type="text" id="addImg" placeholder="Image URL" />
+                        <select id="addBadge">
+                            <option value="">No Badge</option>
+                            <option value="new">New</option>
+                            <option value="sale">Sale</option>
+                            <option value="premium">Premium</option>
+                            <option value="top">Top</option>
+                            <option value="budget">Budget</option>
+                        </select>
+                        <button class="admin-btn primary" id="addProductBtn"><i class="fas fa-save"></i> Add Product</button>
+                    </div>
+                </div>
+
+                <!-- Product List -->
+                <div class="admin-list">
+                    <h3><i class="fas fa-list"></i> Current Stock</h3>
+                    <div id="adminProductList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <footer class="footer">
+        <div class="brand"><i class="fas fa-bolt"></i> ACTIVE GADGETS</div>
+        <div><small>© 2026 · built for tech lovers</small></div>
+        <div class="social">
+            <i class="fab fa-facebook"></i>
+            <i class="fab fa-instagram"></i>
+            <i class="fab fa-youtube"></i>
+        </div>
+    </footer>
+
+    <!-- toast -->
+    <div class="toast" id="toast">
+        <i class="fas fa-check-circle" style="color:#00b8ff; margin-right: 10px;"></i> <span id="toastMsg">added to cart</span>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
